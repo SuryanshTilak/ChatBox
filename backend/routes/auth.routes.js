@@ -7,7 +7,7 @@ const router = express.Router()
 router.post("/signup",signup)
 
 // api/auth/singin
-router.post("/login",signin)
+router.post("/signin",signin)
 
 // api/auth/logout
 router.post("/logout",logout)
