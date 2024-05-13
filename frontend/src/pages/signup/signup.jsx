@@ -3,7 +3,7 @@ import React,{useState} from "react";
 import GenderCheckBox from "./GenderCheckBox";
 import { Link } from "react-router-dom";
 
-const SignUp = () => {
+export const SignUp = () => {
 
   const [inputs,setInputs] =useState({
     fullName : '',
@@ -106,5 +106,3 @@ const SignUp = () => {
     </div>
   );
 };
-
-export default SignUp;
