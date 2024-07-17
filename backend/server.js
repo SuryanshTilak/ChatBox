@@ -7,6 +7,8 @@ import messageRoutes from './routes/message.routes.js'
 import userRoutes from './routes/user.routes.js'
 
 import connectToMongoDB from "./db/mongoDb.js"
+//cors nhi hai original me
+import cors from 'cors'
 
 const app=express()
 dotenv.config()// to use .env file
@@ -19,10 +21,12 @@ app.use(express.json())
 app.use(cookieParser())
 //to able to access cookie
 
-app.get('/', (req,res) => {
-    //root route http://localhost:5000/
-    res.send("HELLO WORLD!")
-})
+app.use(cors())
+
+// app.get('/', (req,res) => {
+//     //root route http://localhost:5000/
+//     res.send("HELLO WORLD!")
+// })
 
 app.use("/api/auth",authRoutes)
 app.use("/api/messages",messageRoutes)
