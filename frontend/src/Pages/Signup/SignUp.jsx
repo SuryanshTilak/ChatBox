@@ -104,9 +104,11 @@ export const SignUp = () => {
           </Link>
 
           <div>
-            <button className='btn btn-block btn-sm mt-4'>Sign Up</button>
+            <button className='btn btn-block btn-sm mt-4'
+            disabled={loading}
+            >Sign Up</button>
           </div>
-
+            {loading ? <span className="loading loading-spinner"></span> : "Sign Up"}
         </form>
 
       </div>

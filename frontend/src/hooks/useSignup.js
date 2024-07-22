@@ -2,10 +2,12 @@ import { useState } from 'react'
 import toast from 'react-hot-toast'
 import https from 'https';
 import axios from 'axios'
+import { useAuthContext } from '../context/AuthContext';
 
 // Function useSignup = hook
 const useSignup = () => {
     const [loading, setLoading] = useState(false)
+    const {setAuthUser} = useAuthContext()
 
     // Function signup
     const signup = async ({ fullName, username, password, confirmPassword, gender }) => {
@@ -29,6 +31,12 @@ const useSignup = () => {
                 throw new Error(data.error)
             }
             console.log(data)
+
+            //localStorage
+            localStorage.setItem("chat-user",JSON.stringify(data))
+
+            //context
+            setAuthUser(data)
         } catch (error) {
             toast.error(error?.message || 'An unexpected error occurred')
         } finally {
