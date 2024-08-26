@@ -5,7 +5,7 @@ import App from './App.jsx'
 
 import './index.css'
 import { AuthContextProvider } from './context/AuthContext.jsx'
-import { SocketContextProvider } from './context/SocketContex.js'
+import { SocketContextProvider } from './context/SocketContex.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

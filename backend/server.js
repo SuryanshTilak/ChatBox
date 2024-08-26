@@ -1,6 +1,8 @@
 import express from "express"
 import dotenv from "dotenv"
 import cookieParser from "cookie-parser"
+//-------express yaha se socket.js me daal diya gaya--------------
+import { app, server } from "./socket/socket.js"
 
 import authRoutes from "./routes/auth.routes.js"
 import messageRoutes from './routes/message.routes.js'
@@ -10,7 +12,8 @@ import connectToMongoDB from "./db/mongoDb.js"
 //cors nhi hai original me
 import cors from 'cors'
 
-const app=express()
+//-------delete after socket.js---------
+//const app=express()
 dotenv.config()// to use .env file
 
 const PORT = process.env.PORT || 5000
@@ -21,7 +24,7 @@ app.use(express.json())
 app.use(cookieParser())
 //to able to access cookie
 
-app.use(cors())
+// app.use(cors())
 
 // app.get('/', (req,res) => {
 //     //root route http://localhost:5000/
@@ -33,7 +36,7 @@ app.use("/api/messages",messageRoutes)
 app.use("/api/users",userRoutes)
 
 
-app.listen(PORT,()=>{
+server.listen(PORT,()=>{
     connectToMongoDB()
     console.log(`Server is running on port ${PORT}`)
 })

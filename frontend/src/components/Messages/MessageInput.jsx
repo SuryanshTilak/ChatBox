@@ -10,12 +10,10 @@ const MessageInput = () => {
   const handleSubmit=async (e)=>{
     e.preventDefault()
     // agar user koi msg type nhi karega(empty h0) toh kuch maat karo
-    if(!message)
-    return
+    if(!message) return
     //message type kare tab message bhejo backend me msg me add hogaya
     
     await sendMessage(message)
-
     setMessage("")
 
   }
